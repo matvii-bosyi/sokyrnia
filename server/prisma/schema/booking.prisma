@@ -1,0 +1,18 @@
+enum BookingStatus {
+  pending
+  confirmed
+  canceled
+}
+
+model Booking {
+  id              String        @id @default(uuid())
+  name            String
+  phone           String
+  startTime       DateTime
+  durationMinutes Int
+  line            Int
+  status          BookingStatus @default(pending)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
